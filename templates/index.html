@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generative AI</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+    <link rel="icon" href="{% static 'items/openai.png' %}">
+<body>
+
+    <header >
+        <nav class="navbar" >
+            <span class="logo">
+                <img class="logo_img" src="{% static 'items/openai.png' %}" alt="logo">
+                Generative AI
+            </span>
+            <span class="item">
+                <a href="">Home</a>
+                <a href="">About</a>
+            </span>
+        </nav>
+    </header>
+    <section class="section1">
+      <video class="video" aria-hidden="true" autoplay loop muted plays-inline>
+        <source src="{% static  'items/ai.mp4' %}" type="video/mp4"/>
+      </video>
+      <div class="text">
+        <h1>Welcome To Generative AI</h1>
+        <h3>
+            Elevate your creativity with our innovative web application! Unleash stunning visuals <br>
+             through image generation,distill information with text summarization, and effortlessly <br>
+              create textual content, making your ideas come to life like never before
+        </h3>
+      </div>
+    </section>
+    <section class="section2">
+        <div class="apps">
+            <div class="gemimg app">
+                <h2 id="genimg">Generate images</h2>
+                <p>
+                    Transform imagination into reality with our image generation feature—empowering users to effortlessly create captivating visuals and bring their ideas to life in vivid detail.
+                </p>
+            </div>
+            <div class="txtchat app">
+                <h2 id="txtchat">Ask Questions(chat)</h2>
+                <p>
+                    Elevate your interactive experience through our Ask Questions (Chat) feature, fostering engaging conversations where queries find insightful answers in real-time, creating a dynamic platform for knowledge exchange.
+                </p>
+            </div>
+            <div class="sumtxt app">
+                <h2 id="sumtxt" >Summarize Text</h2>
+                <p>
+                    Effortlessly distill large volumes of text into concise, meaningful summaries with our Summarize Text feature, providing users with a quick and efficient way to grasp essential information at a glance.
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ///////////////////////////////////////////// -->
+    <!-- <div>
+        <button id="genimg">Generate Image</button>
+        <button id="sumtxt">Summerize Text </button>
+        <button id="txtchat">Ask Question(chat)</button>
+    </div> -->
+    <script>
+        let genImg = document.getElementById("genimg")
+        genImg.addEventListener('click', ()=>{
+            window.location.href='generateimg';
+        })
+
+        let sumtxt = document.getElementById("sumtxt")
+        sumtxt.addEventListener('click', ()=>{
+            window.location.href='summerizetxt'
+        })
+
+        let txtchat = document.getElementById("txtchat")
+        txtchat.addEventListener('click', ()=>{
+            window.location.href = 'txtchat'
+        })
+        // function openInNewTab(url) {
+        //     window.open(url, '_blank');
+        // }
+
+        // let genImg = document.getElementById("genimg")
+        // genImg.addEventListener('click', () => {
+        //     openInNewTab('generateimg');
+        // })
+
+        // let sumtxt = document.getElementById("sumtxt")
+        // sumtxt.addEventListener('click', () => {
+        //     openInNewTab('summerizetxt');
+        // })
+
+        // let txtchat = document.getElementById("txtchat")
+        // txtchat.addEventListener('click', () => {
+        //     openInNewTab('txtchat');
+        // })
+    </script>
+</body>
+</html>

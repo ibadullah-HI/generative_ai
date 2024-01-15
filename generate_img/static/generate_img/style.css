@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+.navbar{
+    height: 5rem;
+    width: 100%;
+    /* background-color: #000000;  */
+    background-color: #3498db; 
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-between;
+}
+
+.logo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: rgb(255, 255, 255);
+    margin-left: 15px;
+    gap: 0.5rem;
+    font-weight:bolder;
+    font-size: 2rem;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+}
+.logo_img{
+    height: 70px;
+    width: 70px;
+}
+
+.item{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    margin-right: 10rem;
+    
+}
+
+.item a{
+    text-decoration:none;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+    font-size: x-large;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+}
+.item a:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.section1{
+    width: 100%;
+    height: auto;
+    /* background-color: #ffffff; */
+    background-color: #091326;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    width: 70rem;
+    height: 45rem;
+    /* background-color: #000000; */
+    background-color: #091326;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    border-radius: 20px;
+}
+
+.container h1{
+ margin-top: 0.4rem;
+ margin-bottom: 0.4rem;
+ font-size: 3rem;
+}
+
+.gen_img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38rem;
+    height: 30rem;
+    background-color: rgb(209, 180, 139);
+    border-radius: 10px;
+    box-shadow: 0px -5px 12px rgb(157, 61, 88)
+}
+
+.form{
+    display: flex;
+    flex-direction: row;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.form_input{
+    border: none;
+    outline: none;
+    padding: 8px; /* Adjust the padding as needed */
+    box-sizing: border-box;
+    width: 600px; /* Adjust the width as needed */
+    height: 50px;
+    color: #000000;
+    font-weight: 600;
+    font-size: large;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+
+input:hover {
+    /* Styles when the input is hovered (remove the hover border) */
+    border: none;
+}
+
+.btn{
+    display: flex;
+    color: #000000;
+    height: 50px;
+    cursor: pointer;
+    width: 150px;
+    margin-left: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    font-size: large;
+    font-weight: 600;
+    border-radius: 10px;
+    border: none;
+}
+
+.btn:hover{
+    background-color: rgb(145, 145, 145);
+    color: white;
+}
+
+.image{
+    width: 100%;
+    height:  100%;
+    display: block;
+    border-radius: 10px;
+}

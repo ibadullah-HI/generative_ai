@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'txt_chat/style.css' %}" />
+    <link rel="icon" href="{% static 'txt_chat/openai.png' %}">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <span class="logo">
+                <img class="logo_img" src="{% static 'txt_chat/openai.png' %}" alt="logo"> Generative AI
+            </span>
+            <span class="item">
+                <a href="http://127.0.0.1:8000/">Home</a>
+                <a href="">About</a>
+            </span>
+        </nav>
+    </header>
+
+    <section class="section1">
+        <div class="side_bar">
+            <div class="side_txt">
+                <h3>Text Generation</h3>
+                <p>
+                    Text generation involves the creation of human-like text using algorithms or models, typically
+                    employing machine learning techniques. Advanced models,
+                    such as GPT-3, can generate coherent and contextually relevant text based on provided prompts,
+                    making them valuable for tasks
+                    like content creation, language translation, and conversational agents
+                </p>
+            </div>
+        </div>
+        <div id="chat_container">
+            <div id="chat-messages">
+
+                <div class="answer">
+                    <div class="ai"><img src="{% static 'txt_chat/openai.png' %}" alt="answer">Gen AI</div>
+                    <p>Feel free to ask.</p>
+                </div>
+            </div>
+
+            <div id="user-input">
+                <input id="user-message" type="text" placeholder="Message">
+                <button id="send-button">Ask</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        $(document).ready(function () {
+            // Handle button click using AJAX
+            $("#send-button").click(function () {
+                let chatMessages = $("#chat-messages");
+                let userMessage = $("#user-message").val();
+                console.log(userMessage)
+                chatMessages.append(`<div class="question">
+                    <div class="user"><img src="{% static 'txt_chat/openai.png' %}" alt="user">User</div>
+                    <p>${userMessage}</p>
+                    ....responding....
+                </div>`);
+                
+                $.ajax({
+                    type: "GET",
+                    url: "{% url 'chate' %}",
+                    data: { text_input: userMessage },
+                    success: function (response) {
+                        chatMessages.append(`<div class="answer">
+                             <div class="ai"><img src="{% static 'txt_chat/openai.png' %}" alt="answer">Gen AI</div>
+                             <p>${response}</p>
+                          </div>`);
+                        // $(".answer").append(`<p id="generated">${response}</p>`)
+                        console.log(response);
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>

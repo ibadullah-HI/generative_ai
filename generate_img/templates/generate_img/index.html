@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'generate_img/style.css' %}">
+    <link rel="icon" href="{% static 'generate_img/openai.png' %}">
+    <title>Generate image</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> <!-- Include jQuery -->
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <span class="logo">
+                <img class="logo_img" src="{% static 'generate_img/openai.png' %}" alt="logo">
+                Generative AI
+            </span>
+            <span class="item">
+                <a href="http://127.0.0.1:8000/">Home</a>
+                <a href="">About</a>
+            </span>
+        </nav>
+    </header>
+
+    <section class="section1">
+        <div class="container">
+            <h1>Generate Image With AI</h1>
+            <div class="gen_img" id="gen_img">
+                <!-- Generated Image will be here -->
+                <img class="image" src="https://images.pexels.com/photos/380954/pexels-photo-380954.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="generated image">
+
+            </div>
+            <div class="form">
+                <input type="text" name="user_input" placeholder="Enter what you want?" id="user_input" class="form_input">
+                <button class="btn" id="btn_g">Generate</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        $(document).ready(function () {
+            // Handle button click using AJAX
+            $("#btn_g").click(function () {
+                let text = $("#user_input").val(); // Use jQuery to get the input value
+                $("#gen_img").html(`<img class="image" src="{% static 'generate_img/loading.svg' %}" alt="generated image">`);
+
+                console.log(text);
+
+                $.ajax({
+                    type: "GET", 
+                    url: "{% url 'generate' %}",
+                    data: { text_input: text },
+                    success: function (response) {
+                        $("#gen_img").html(`<img class="image" src="${response}" alt="generated image">`);
+                        console.log(response);
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
