@@ -11,7 +11,8 @@
     height: 5rem;
     width: 100%;
     /* background-color: #000000;  */
-    background-color: #3498db; 
+    /* background-color: #3498db;  */
+    background: radial-gradient(circle, #5b0fca, #ff00e3);
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -58,7 +59,8 @@
     width: 100%;
     height: auto;
     /* background-color: #ffffff; */
-    background-color: #091326;
+    /* background-color: #091326; */
+    background: linear-gradient(to right, #b30000, #ffa839, #00f3ff, #00f);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -74,7 +76,7 @@
     width: 70rem;
     height: 45rem;
     /* background-color: #000000; */
-    background-color: #091326;
+    /* background-color: #091326; */
     margin-top: 1rem;
     margin-bottom: 2rem;
     border-radius: 20px;

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,9 +11,10 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> <!-- Include jQuery -->
 
 </head>
+
 <body>
-    <header >
-        <nav class="navbar" >
+    <header>
+        <nav class="navbar">
             <span class="logo">
                 <img class="logo_img" src="{% static 'summerize_txt/openai.png' %}" alt="logo">
                 Generative AI
@@ -29,28 +31,34 @@
             <div class="heading">
                 <h1>Summerize text with AI</h1>
             </div>
-            <h3>Enter Text Here To Summerize:</h3>
-           
-            <textarea name="text" id="text_area" class="txt_area"></textarea>
-            <!-- <form action="/index.html" method="post" class="form"> -->
-            <div class="btn_div">
-                <button  id="btn">Summerize</button>
+
+            <div class="sumarea">
+                <div>
+                    <h3>Enter Text Here To Summerize:</h3>
+
+                    <textarea name="text" id="text_area" class="txt_area"></textarea>
+                </div>
+                <!-- <form action="/index.html" method="post" class="form"> -->
+                    <hr>
+                    
+                <div class="sum_div">
+                    <h3>Summerized:</h3>
+                    <textarea name="text" id="summarized" class="sum_txt"></textarea>
+                </div>
             </div>
-        
-            <h3>Summerized:</h3>
-            <div class="sum_div">
-                <textarea name="text" id="summarized" class="sum_txt"></textarea>
+            <div class="btn_div">
+                <button id="btn">Summerize</button>
             </div>
         </div>
     </section>
 
     <script>
-         let summer = document.getElementById("summarized")
+        let summer = document.getElementById("summarized")
         $(document).ready(function () {
             // Handle button click using AJAX
             $("#btn").click(function () {
-                 let text = document.getElementById("text_area").value;
-                 console.log(text);
+                let text = document.getElementById("text_area").value;
+                console.log(text);
                 $.ajax({
                     type: "GET",
                     url: "{% url 'summerize' %}",
@@ -58,7 +66,7 @@
                     success: function (response) {
                         // alert(response);
                         summer.innerText = `${response}`;
-                        
+
                     },
                     error: function (error) {
                         console.log(error);
@@ -68,4 +76,5 @@
         });
     </script>
 </body>
+
 </html>
