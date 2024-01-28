@@ -19,15 +19,7 @@ class Chate(TxtChat):
         "X-RapidAPI-Key": "aae89c5f80msh780b5cd7b24f4b1p13e122jsn3e90482eb1b7",
         "X-RapidAPI-Host": "chatgpt-42.p.rapidapi.com"
     }
-    # url = "https://open-ai21.p.rapidapi.com/chatgpt"
-
-
-    # headers = {
-    #     "content-type": "application/json",
-    #     "X-RapidAPI-Key": "6187173281msh4ccb5ce9a67f68fp115af7jsn99b8eec8b91e",
-    #     "X-RapidAPI-Host": "open-ai21.p.rapidapi.com"
-    # }
-
+  
 
     def get(self, request):
         if request.method == 'GET':

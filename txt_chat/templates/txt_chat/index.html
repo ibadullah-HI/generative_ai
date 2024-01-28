@@ -39,12 +39,12 @@
         </div>
         <div id="chat_container">
             <div id="chat-messages">
-
                 <div class="answer">
                     <div class="ai"><img src="{% static 'txt_chat/openai.png' %}" alt="answer">Gen AI</div>
                     <p>Feel free to ask.</p>
                 </div>
             </div>
+            
 
             <div id="user-input">
                 <input id="user-message" type="text" placeholder="Message">
@@ -57,13 +57,17 @@
         $(document).ready(function () {
             // Handle button click using AJAX
             $("#send-button").click(function () {
+                let id = 0;
+                id += 1;
                 let chatMessages = $("#chat-messages");
                 let userMessage = $("#user-message").val();
                 console.log(userMessage)
                 chatMessages.append(`<div class="question">
                     <div class="user"><img src="{% static 'txt_chat/openai.png' %}" alt="user">User</div>
                     <p>${userMessage}</p>
-                    ....responding....
+                    <div id="load${id}">
+                      <img class="loader" src="{% static 'summerize_txt/loading.svg' %}" alt="">
+                    </div>
                 </div>`);
                 
                 $.ajax({
@@ -71,6 +75,7 @@
                     url: "{% url 'chate' %}",
                     data: { text_input: userMessage },
                     success: function (response) {
+                        $('#load'+id).html(` `);
                         chatMessages.append(`<div class="answer">
                              <div class="ai"><img src="{% static 'txt_chat/openai.png' %}" alt="answer">Gen AI</div>
                              <p>${response}</p>
