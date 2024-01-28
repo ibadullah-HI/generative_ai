@@ -24,10 +24,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-6#+v00y$dfy@909_bh4^i0d11g)8r4#z*!0^lbc_w9pz$=(12j"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-# DEBUG = False
+# DEBUG = True
+DEBUG = False
 
-# ALLOWED_HOSTS = ['https://genfastai.netlify.app/']
+ALLOWED_HOSTS = ['https://web-7vngiz328ueo.up-sg-sin1-1.apps.run-on-seenode.com/']
 
 
 # Application definition
